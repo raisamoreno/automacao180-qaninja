@@ -17,5 +17,5 @@ Funcionalidade: Cadastro de Anúncios
             | categoria | Cordas        |
             | preco     | 200           |
 
-        Quando submento o cadastro desse item
+        Quando submeto o cadastro desse item
         Então devo ver esse item no meu Dashboard

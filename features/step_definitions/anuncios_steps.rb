@@ -1,4 +1,5 @@
 Dado('que estou logado como {string} e {string}') do |email, senha|
+    @email = email
 
     visit "/"
     find("input[placeholder='Seu e-email'").set email
@@ -16,10 +17,15 @@ end
 Dado('que eu tenho o seguinte equipamento:') do |equipamento|
 
    @anuncio = equipamento.rows_hash
+   
+   MongoDB.new.remove_anuncio(@anuncio[:nome], @email)
 end
   
-Quando('submento o cadastro desse item') do
+Quando('submeto o cadastro desse item') do
 
+   imagem = Dir.pwd + "/features/support/fixtures/images/" + @anuncio[:imagem]
+
+    find("#thumbnail input[type=file]", visible: false).set imagem
     find("input[placeholder$=equipamento]").set @anuncio[:nome]
     find("#category").find('option', text: @anuncio[:categoria]).select_option
     find("input[placeholder^=Valor]").set @anuncio[:preco]
@@ -28,5 +34,8 @@ Quando('submento o cadastro desse item') do
 end
   
 Então('devo ver esse item no meu Dashboard') do
-    pending # Write code here that turns the phrase above into concrete actions
+
+    anuncios = find(".equipo-list")
+    expect(anuncios).to have_content @anuncio[:nome]
+    expect(anuncios).to have_content "R$#{@anuncio[:preco]}/dia"
 end
