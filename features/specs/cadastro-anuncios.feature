@@ -9,7 +9,7 @@ Funcionalidade: Cadastro de Anúncios
     Cenario: Novo equipamento
 
 
-        Dado que estou logado como "betao@yahoo.com.br" e "pwd123"
+        Dado que estou logado como "betao@yahoo.com" e "pwd123"
             E que acesso o formulário de cadastro de Anúncios
             E que eu tenho o seguinte equipamento:
             | imagem    | fender-sb.jpg |
