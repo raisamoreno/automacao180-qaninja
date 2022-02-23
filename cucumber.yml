@@ -1,2 +1,6 @@
 ---
-default: --publish
+default: --publish -p allure -p bdd
+bdd: -f pretty
+dots: -f progress
+html: -f html -o logs/report.html
+allure: --format AllureCucumber::CucumberFormatter --out=logs
