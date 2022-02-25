@@ -7,7 +7,7 @@ class MongoDB
     attr_accessor :usuarios, :ssequipamentos
 
     def initialize
-        database = Mongo::Client.new('mongodb://rocklov-db:27017/rocklov')
+        database = Mongo::Client.new(CONFIG["mongo"])
         @collection_users = database[:users]
         @collection_equipamentos = database[:equipos]
     end

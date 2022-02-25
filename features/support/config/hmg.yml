@@ -1,0 +1,4 @@
+---
+#ambiente nao existe. arquivo criado apenas com a finalidade de demonstrar que é possível usar a mesma automação para o mesmo sistema em outros ambientes.
+url: http://rocklov.hmg.com
+mongo: mongodb://usuario@senha:200.234.55.77/rocklov
